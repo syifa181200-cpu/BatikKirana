@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batik Kirana - Produk</title>
+  <meta name="description" content="Katalog produk Batik Kirana." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="produk.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Header / Navbar (halaman produk): kiri = Kembali, tengah = logo, kanan = login+keranjang -->
+  <header id="mainNavbar" class="navbar-produk">
+    <div class="container-brand">
+      <div class="navbar-inner navbar-inner-produk">
+        <div class="nav-produk-left">
+          <a href="index.html#beranda" class="btn-kembali-beranda">
+            <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+            <span>Kembali ke Beranda</span>
+          </a>
+        </div>
+        <a href="index.html#beranda" class="logo-emblem logo-emblem-produk">
+          <img src="gambar/logo.png" alt="Logo Batik Kirana">
+        </a>
+        <div class="nav-produk-actions">
+          <button id="loginBtn" type="button" aria-label="Login" title="Login">
+            <i data-lucide="user" style="width:24px;height:24px;"></i>
+          </button>
+          <button id="cartBtn" type="button" aria-label="Keranjang">
+            <i data-lucide="shopping-bag" style="width:24px;height:24px;"></i>
+            <span id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification">
+    <i data-lucide="check-circle-2" style="width:20px;height:20px;color:#2E7D32;"></i>
+    <span id="toastMessage" style="font-size:0.75rem;font-weight:500;">Item berhasil ditambahkan ke keranjang!</span>
+  </div>
+
+<!-- Produk Batik Kirana - External Section -->
+  <!-- Katalog Produk & Filter -->
+  <section id="produk">
+    <div class="container-brand">
+      <!-- Filter Chips & Sorting -->
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+        <div class="d-flex flex-wrap gap-2" id="filterChips">
+          <button type="button" onclick="filterByCategory('all')" class="filter-chip active">Semua Produk</button>
+          <button type="button" onclick="filterByCategory('tradisional')" class="filter-chip">Tradisional</button>
+          <button type="button" onclick="filterByCategory('modern')" class="filter-chip">Modern</button>
+          <button type="button" onclick="filterByCategory('tulis')" class="filter-chip">Batik Tulis</button>
+          <button type="button" onclick="filterByCategory('cap')" class="filter-chip">Batik Cap</button>
+          <button type="button" onclick="filterByCategory('couple')" class="filter-chip">Batik Set</button>
+        </div>
+        <div class="d-flex align-items-center gap-2 sort-label">
+          <span>Urutkan :</span>
+          <select id="sortSelect" onchange="handleSort(this.value)">
+            <option value="rekomendasi">Rekomendasi</option>
+            <option value="harga-asc">Harga: Terendah</option>
+            <option value="harga-desc">Harga: Tertinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="row g-4" id="productsGrid">
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-1" data-category="modern" data-badge="Populer" data-price="345" data-title="BATIK MODERN TENUN IKAT NAYAKA" data-desc="Kombinasi modern kemeja berkerah sanghai dengan aksen tenun ikat motif geometris bernuansa earth tone untuk gaya kasual dan formal sehari-hari.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-1')">
+              <img src="gambar/modern1.jpg" alt="BATIK MODERN TENUN IKAT NAYAKA">
+              <span class="product-badge bg-badge-popular">Populer</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK MODERN</span><span class="product-rating">★ 5 (89)</span></div>
+                <h3 class="product-title">BATIK MODERN TENUN...</h3>
+                <p class="product-desc">Kombinasi modern kemeja berkerah sanghai dengan aksen tenun ikat motif geometris bernuansa earth tone untuk gaya kasual dan formal sehari-hari.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 345.000</span>
+                  <button type="button" onclick="addToCart('prod-1', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-2" data-category="tulis" data-badge="Best Seller" data-price="485" data-title="BATIK TULIS SWARNA KIRANA" data-desc="Rok A-line feminin berhiaskan perpaduan motif batik kawung dan parang bernuansa soft pink, memberikan tampilan yang manis, dan anggun.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-2')">
+              <img src="gambar/Tulis.jpg" alt="ROK BATIK TULIS SWARNA KIRANA">
+              <span class="product-badge bg-badge-best">Best Seller</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TULIS</span><span class="product-rating">★ 5 (87)</span></div>
+                <h3 class="product-title">BATIK TULIS SWAR...</h3>
+                <p class="product-desc">Rok A-line feminin berhiaskan perpaduan motif batik kawung dan parang bernuansa soft pink, memberikan tampilan yang manis, dan anggun.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 485.000</span>
+                  <button type="button" onclick="addToCart('prod-2', 'Panjang 2.4m x 1.15m')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-3" data-category="cap" data-badge="Premium" data-price="575" data-title="BATIK CAP LESTARI NAVY" data-desc="Tunik wanita kerah V-neck bernuansa navy dengan keindahan motif parang klasik dan sentuhan ornamen bunga di bagian tengah yang anggun, rapi, serta memesona.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-3')">
+              <img src="gambar/cap1.jpg" alt="BATIK CAP SEKAR JAGAD MARUN KLASIK">
+              <span class="product-badge bg-badge-premium">Premium</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK CAP</span><span class="product-rating">★ 5 (75)</span></div>
+                <h3 class="product-title">BATIK CAP LESTARI...</h3>
+                <p class="product-desc">Tunik wanita kerah V-neck bernuansa navy dengan keindahan motif parang klasik dan sentuhan ornamen bunga di bagian tengah yang anggun, rapi, serta memesona.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 575.000</span>
+                  <button type="button" onclick="addToCart('prod-3', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-4" data-category="couple" data-badge="Baru" data-price="789" data-title="BATIK SET COUPLE LONTAR NAYAKA" data-desc="Paduan eksklusif kemeja pria bermotif geometris dan setelan wanita berpotongan luaran (outer) bersih dengan sabuk aksen senada.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-4')">
+              <img src="gambar/couple.png" alt="BATIK SET COUPLE LONTAR NAYAKA">
+              <span class="product-badge bg-badge-new">Baru</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK SET COUPLE</span><span class="product-rating">★ 5 (89)</span></div>
+                <h3 class="product-title">BATIK SET COUPLE LON...</h3>
+                <p class="product-desc">Paduan eksklusif kemeja pria bermotif geometris dan setelan wanita berpotongan luaran (outer) bersih dengan sabuk aksen senada.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 789.000</span>
+                  <button type="button" onclick="addToCart('prod-4', 'Pria: M-XXL')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-5" data-category="tradisional" data-badge="Populer" data-price="444" data-title="BATIK TRADISIONAL PRABU HITAM SOGAN" data-desc="Kemeja pria lengan panjang berlatar hitam pekat dengan ukiran motif gurda dan flora beraksen sogan maskulin, memancarkan kesan gagah, wibawa, serta karismatik.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-5')">
+              <img src="gambar/tradisional2.jpg" alt="BATIK TRADISIONAL PRABU HITAM SOGAN">
+              <span class="product-badge bg-badge-popular">Populer</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TRADISIONAL</span><span class="product-rating">★ 5 (74)</span></div>
+                <h3 class="product-title">BATIK TRADISIONAL PRA...</h3>
+                <p class="product-desc">Kemeja pria lengan panjang berlatar hitam pekat dengan ukiran motif gurda dan flora beraksen sogan maskulin, memancarkan kesan gagah, wibawa, serta karismatik.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 444.000</span>
+                  <button type="button" onclick="addToCart('prod-5', 'Panjang 2.5m x 1.15m')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-6" data-category="couple" data-badge="Best Seller" data-price="825" data-title="BATIK SET COUPLE MAHARAJA SWARNA" data-desc="Satu setel busana pasangan dengan motif klasik sekartaji bernuansa warna bumi (earth tone), memancarkan aura kemewahan yang bersahaja dan tak lekang oleh waktu.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-6')">
+              <img src="gambar/couple1.jpg" alt="BATIK SET COUPLE MAHARAJA SWARNA">
+              <span class="product-badge bg-badge-best">Best Seller</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK SET COUPLE</span><span class="product-rating">★ 5 (92)</span></div>
+                <h3 class="product-title">BATIK SET COUPLE MAH...</h3>
+                <p class="product-desc">Satu setel busana pasangan dengan motif klasik sekartaji bernuansa warna bumi (earth tone), memancarkan aura kemewahan yang bersahaja dan tak lekang oleh waktu.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 825.000</span>
+                  <button type="button" onclick="addToCart('prod-6', 'Pria: M-XXL')"class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-7" data-category="tradisional" data-badge="Populer" data-price="485" data-title="BATIK TRADISIONAL KAWUNG SOGAN" data-desc="Kombinasi eksklusif tunik asimetris dan rok batik bernuansa sogan klasik, menghadirkan keagungan motif kawung serta guratan etnik yang mewah dan sarat akan nilai budaya.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-7')">
+              <img src="gambar/tradisional1.jpg" alt="BATIK TRADISIONAL KAWUNG SOGAN">
+              <span class="product-badge bg-badge-popular">Populer</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TRADISIONAL</span><span class="product-rating">★ 5 (78)</span></div>
+                <h3 class="product-title">BATIK TRADISIONAL KAWU...</h3>
+                <p class="product-desc">Kombinasi eksklusif tunik asimetris dan rok batik bernuansa sogan klasik, menghadirkan keagungan motif kawung serta guratan etnik yang mewah dan sarat akan nilai budaya.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 485.000</span>
+                  <button type="button" onclick="addToCart('prod-7', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-8" data-category="modern" data-badge="Baru" data-price="385" data-title="BATIK MODERN MAHARANI MARUN" data-desc="Desain rok suji berpotongan A-line anggun dengan aksen ikatan pinggang batik jumputan dan motif bordir flora minimalis untuk tampilan elegan modern.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-8')">
+              <img src="gambar/modern2.jpg" alt="BATIK MODERN MAHARANI MARUN">
+              <span class="product-badge bg-badge-new">Baru</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK MODERN</span><span class="product-rating">★ 5 (69)</span></div>
+                <h3 class="product-title">BATIK MODERN MAHARA...</h3>
+                <p class="product-desc">Desain rok suji berpotongan A-line anggun dengan aksen ikatan pinggang batik jumputan dan motif bordir flora minimalis untuk tampilan elegan modern.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 385.000</span>
+                  <button type="button" onclick="addToCart('prod-8', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-9" data-category="tulis" data-badge="Premium" data-price="650" data-title="BATIK TULIS PRABU ANANTA" data-desc="Kemeja lengan panjang pria berlatar gelap yang menampilkan keagungan motif burung garuda dan ornamen flora emas, menghadirkan kesan wibawa, elegan, dan karismatik.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-9')">
+              <img src="gambar/Tulis2.jpg" alt="BATIK TULIS TRUNTUM YOGYAKARTA">
+              <span class="product-badge bg-badge-premium">Premium</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TULIS</span><span class="product-rating">★ 5 (76)</span></div>
+                <h3 class="product-title">BATIK TULIS PRABU...</h3>
+                <p class="product-desc">Kemeja lengan panjang pria berlatar gelap yang menampilkan keagungan motif burung garuda dan ornamen flora emas, menghadirkan kesan wibawa, elegan, dan karismatik.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 650.000</span>
+                  <button type="button" onclick="addToCart('prod-9', 'Panjang 2.4m x 1.15m')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-10" data-category="cap" data-badge="Best Seller" data-price="471" data-title="BATIK CAP INDIGO PATCHWORK" data-desc="Kemeja pria lengan pendek bernuansa navy indigo dengan kombinasi motif geometris, garis, dan flora minimalis berunsur patchwork yang stylish dan santai.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-10')">
+              <img src="gambar/cap.jpg" alt="BATIK CAP INDIGO PATCHWORK">
+              <span class="product-badge bg-badge-best">Best Seller</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK CAP</span><span class="product-rating">★ 5 (96)</span></div>
+                <h3 class="product-title">BATIK CAP INDIGO...</h3>
+                <p class="product-desc">Kemeja pria lengan pendek bernuansa navy indigo dengan kombinasi motif geometris, garis, dan flora minimalis berunsur patchwork yang stylish dan santai.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 471.000</span>
+                  <button type="button" onclick="addToCart('prod-10', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-11" data-category="couple" data-badge="Baru" data-price="899" data-title="BATIK SET COUPLE ARSANA HANSASANA" data-desc="Koleksi eksklusif bernuansa soft cream dengan keindahan motif burung angsa (hansa) yang dipadukan sempurna dengan luaran brokat lace yang elegan, menciptakan kesan anggun dan menawan.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-11')">
+              <img src="gambar/couple2.jpg" alt="BATIK SET COUPLE ARSANA HANSASANA">
+              <span class="product-badge bg-badge-new">Baru</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK SET COUPLE</span><span class="product-rating">★ 5 (99)</span></div>
+                <h3 class="product-title">BATIK SET COUPLE ARS...</h3>
+                <p class="product-desc">Koleksi eksklusif bernuansa soft cream dengan keindahan motif burung angsa (hansa) yang dipadukan sempurna dengan luaran brokat lace yang elegan, menciptakan kesan anggun dan menawan.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 899.000</span>
+                  <button type="button" onclick="addToCart('prod-11', 'Pria: M-XXL')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-12" data-category="tulis" data-badge="Populer" data-price="575" data-title="BATIK TULIS ARUNA PARANG" data-desc="Tunik berpita dengan kombinasi elegan motif parang di bagian lengan dan motif flora kontemporer bernuansa biru indigo, menghadirkan tampilan feminin yang berkelas.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-12')">
+              <img src="gambar/Tulis3.jpg" alt="BATIK TULIS ARUNA PARANG">
+              <span class="product-badge bg-badge-popular">Populer</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TULIS</span><span class="product-rating">★ 5 (71)</span></div>
+                <h3 class="product-title">BATIK TULIS ARU...</h3>
+                <p class="product-desc">Tunik berpita dengan kombinasi elegan motif parang di bagian lengan dan motif flora kontemporer bernuansa biru indigo, menghadirkan tampilan feminin yang berkelas.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 575.000</span>
+                  <button type="button" onclick="addToCart('prod-12', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-13" data-category="tradisional" data-badge="Best Seller" data-price="356" data-title="BATIK TRADISIONAL PARANG SOGAN NAVY" data-desc="Keagungan motif parang dan flora klasik kraton bernuansa sogan gelap berpadu warna navy, menghadirkan kesan anggun, wibawa, dan penuh makna.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-13')">
+              <img src="gambar/tradisional.jpg" alt="BATIK TRADISIONAL PARANG SOGAN NAVY">
+              <span class="product-badge bg-badge-best">Best Seller</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK TRADISIONAL</span><span class="product-rating">★ 5 (59)</span></div>
+                <h3 class="product-title">BATIK TRADISIONAL PARANG...</h3>
+                <p class="product-desc">Keagungan motif parang dan flora klasik kraton bernuansa sogan gelap berpadu warna navy, menghadirkan kesan anggun, wibawa, dan penuh makna.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 356.000</span>
+                  <button type="button" onclick="addToCart('prod-13', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-14" data-category="modern" data-badge="Populer" data-price="425" data-title="BATIK MODERN FLORA NUSANTARA" data-desc="Tunik berpita dengan perpaduan asimetris motif parang dan geometris bernuansa navy, menghadirkan kesan modern, rapi, dan chic untuk tampilan semi-formal.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-14')">
+              <img src="gambar/modern3.png" alt="BATIK MODERN KAMALA NAVY">
+              <span class="product-badge bg-badge-popular">Populer</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK MODERN</span><span class="product-rating">★ 5 (73)</span></div>
+                <h3 class="product-title">BATIK MODERN KAMALA...</h3>
+                <p class="product-desc">Tunik berpita dengan perpaduan asimetris motif parang dan geometris bernuansa navy, menghadirkan kesan modern, rapi, dan chic untuk tampilan semi-formal.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 425.000</span>
+                  <button type="button" onclick="addToCart('prod-14', 'S')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 product-col" data-id="prod-15" data-category="cap" data-badge="Premium" data-price="315" data-title="BATIK CAP LENTERA MARUN" data-desc="Koleksi kebaya potong lurus bernuansa maroon mewah, memadukan motif geometris lembut dengan list lis bagian depan bertema etnik klasik yang mewah dan memesona.">
+          <div class="product-card h-100">
+            <div class="product-img-wrap" onclick="openProductModal('prod-15')">
+              <img src="gambar/cap2.jpg" alt="BATIK CAP LENTERA MARUN">
+              <span class="product-badge bg-badge-premium">Premium</span>
+              <div class="product-hover-overlay"><span class="product-hover-btn">Lihat Detail</span></div>
+            </div>
+            <div class="product-body">
+              <div>
+                <div class="product-meta"><span>BATIK CAP</span><span class="product-rating">★ 5 (77)</span></div>
+                <h3 class="product-title">BATIK CAP LENTERA...</h3>
+                <p class="product-desc">Koleksi kebaya potong lurus bernuansa maroon mewah, memadukan motif geometris lembut dengan list lis bagian depan bertema etnik klasik yang mewah dan memesona.</p>
+              </div>
+              <div>
+                <div class="product-footer">
+                  <span class="product-price">RP 315.000</span>
+                  <button type="button" onclick="addToCart('prod-15', 'Panjang 2.4m x 1.15m')" class="btn-add-cart" aria-label="Tambah ke keranjang">
+                    <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 product-empty hidden" id="productsEmpty">
+          <div class="text-center py-5">
+            <h3>Produk tidak ditemukan</h3>
+            <p>Coba gunakan kata kunci atau kategori lain.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Detail Produk -->
+  <div id="productModal" class="hidden">
+    <div class="modal-product-inner" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeProductModal()" class="modal-close-btn" aria-label="Tutup">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+      <div id="modalProductContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="hidden" onclick="toggleCart(false)">
+    <div class="cart-panel" onclick="event.stopPropagation()">
+      <div class="cart-header">
+        <div class="cart-header-title">
+          <i data-lucide="shopping-bag" style="width:24px;height:24px;"></i>
+          <h3>Keranjang Belanja</h3>
+        </div>
+        <button type="button" onclick="toggleCart(false)" class="cart-close" aria-label="Tutup">
+          <i data-lucide="x" style="width:16px;height:16px;"></i>
+        </button>
+      </div>
+      <div id="cartItemsList">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="cart-footer" id="cartFooter">
+        <div class="voucher-row">
+          <input type="text" id="voucherInput" placeholder="Kode Voucher (cth: KIRANA10)" />
+          <button type="button" onclick="applyVoucher()" class="btn-voucher">Gunakan</button>
+        </div>
+        <div id="cartTotals"></div>
+        <button type="button" onclick="openCheckout()" class="btn-checkout">Lanjut ke Checkout</button>
+        <button type="button" onclick="checkoutDirectWa()" class="btn-wa-checkout">
+          <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+          <span>Pesan Cepat via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="hidden">
+    <div class="checkout-inner" onclick="event.stopPropagation()">
+      <div class="checkout-header">
+        <h3>Formulir Pemesanan Batik Kirana</h3>
+        <button type="button" onclick="closeCheckout()" class="cart-close" aria-label="Tutup">
+          <i data-lucide="x" style="width:16px;height:16px;"></i>
+        </button>
+      </div>
+      <div class="checkout-body">
+        <form onsubmit="submitCheckoutOrder(event)">
+          <div class="mb-3">
+            <label class="checkout-label">Nama Lengkap Penerima *</label>
+            <input type="text" id="chkName" required placeholder="Contoh: Raden Ayu Sekar" class="checkout-input" />
+          </div>
+          <div class="mb-3">
+            <label class="checkout-label">Nomor WhatsApp / HP *</label>
+            <input type="tel" id="chkWa" required placeholder="Contoh: 081234567890" class="checkout-input" />
+          </div>
+          <div class="mb-3">
+            <label class="checkout-label">Alamat Lengkap Pengiriman *</label>
+            <textarea id="chkAddress" rows="2" required placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan, kota" class="checkout-input" style="resize:none;"></textarea>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-6">
+              <label class="checkout-label">Kurir</label>
+              <select id="chkCourier" class="checkout-input">
+                <option>JNE Express</option>
+                <option>SiCepat</option>
+                <option>J&T Express</option>
+                <option>POS Indonesia</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="checkout-label">Pembayaran</label>
+              <select id="chkPayment" class="checkout-input">
+                <option>QRIS</option>
+                <option>BCA</option>
+                <option>Mandiri</option>
+                <option>COD</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit-order">
+            <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+            <span>Kirim Pesanan ke WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="hidden">
+    <div class="login-inner" onclick="event.stopPropagation()">
+      <div class="login-header">
+        <h3 id="loginModalTitle">Masuk ke Batik Kirana</h3>
+        <button type="button" onclick="closeLoginModal()" class="cart-close" aria-label="Tutup">
+          <i data-lucide="x" style="width:16px;height:16px;"></i>
+        </button>
+      </div>
+      <div class="login-body">
+        <div id="loginFormView">
+          <form onsubmit="handleLogin(event)">
+            <div class="mb-3">
+              <label class="checkout-label">Email *</label>
+              <input type="email" id="loginEmail" required placeholder="contoh@email.com" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Password *</label>
+              <input type="password" id="loginPassword" required minlength="4" placeholder="Minimal 4 karakter" class="checkout-input" />
+            </div>
+            <button type="submit" class="btn-submit-order">Masuk</button>
+          </form>
+          <p class="login-switch">Belum punya akun? <button type="button" onclick="showRegisterView()">Daftar</button></p>
+        </div>
+        <div id="registerFormView" class="hidden">
+          <form onsubmit="handleRegister(event)">
+            <div class="mb-3">
+              <label class="checkout-label">Nama Lengkap *</label>
+              <input type="text" id="regName" required placeholder="Nama Anda" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Email *</label>
+              <input type="email" id="regEmail" required placeholder="contoh@email.com" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Password *</label>
+              <input type="password" id="regPassword" required minlength="4" placeholder="Minimal 4 karakter" class="checkout-input" />
+            </div>
+            <button type="submit" class="btn-submit-order">Daftar Akun</button>
+          </form>
+          <p class="login-switch">Sudah punya akun? <button type="button" onclick="showLoginView()">Masuk</button></p>
+        </div>
+        <div id="loggedInView" class="hidden">
+          <div class="login-user-info">
+            <div class="login-avatar"><i data-lucide="user-check" style="width:28px;height:28px;"></i></div>
+            <p class="login-user-name" id="loggedInName">Pengguna</p>
+            <p class="login-user-email" id="loggedInEmail">email@example.com</p>
+          </div>
+          <button type="button" onclick="handleLogout()" class="btn-logout">Keluar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-08f80edd-7cfe-4877-b08f-32658d80ba8c" data-elfsight-app-lazy></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- App JS -->
+  <script src="produk.js"></script>
+</body>
+</html>

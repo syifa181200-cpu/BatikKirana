@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batik Kirana - Eksklusif Busana & Kain Batik Nusantara</title>
+  <meta name="description" content="Katalog dan toko online Batik Kirana. Temukan keanggunan kain batik asli Indonesia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="90" tabindex="0">
+  <div id="toastNotification">
+    <i data-lucide="check-circle-2" style="width:20px;height:20px;color:#2E7D32;"></i>
+    <span id="toastMessage" style="font-size:0.75rem;font-weight:500;">Item berhasil ditambahkan ke keranjang!</span>
+  </div>
+
+  <header id="mainNavbar">
+    <div class="container-brand">
+      <div class="navbar-inner">
+        <div class="nav-side nav-side-left">
+          <button id="mobileMenuBtn" type="button" aria-label="Menu">
+            <i data-lucide="menu" style="width:24px;height:24px;"></i>
+          </button>
+          <nav class="nav-desktop">
+            <a href="#beranda" class="nav-link-custom">Beranda</a>
+            <a href="#tentang" class="nav-link-custom">Tentang</a>
+            <a href="#katalog" class="nav-link-custom">Katalog</a>
+          </nav>
+        </div>
+        <a href="#beranda" class="logo-emblem">
+          <img src="gambar/logo.png" alt="Logo Batik Kirana">
+        </a>
+        <div class="nav-side nav-side-right">
+          <nav class="nav-desktop">
+            <a href="#faq" class="nav-link-custom">FAQ</a>
+            <a href="#testimoni" class="nav-link-custom">Testimoni</a>
+            <a href="#kontak" class="nav-link-custom">Kontak</a>
+          </nav>
+          <button id="loginBtn" type="button" aria-label="Login" title="Login">
+            <i data-lucide="user" style="width:24px;height:24px;"></i>
+          </button>
+          <button id="cartBtn" type="button" aria-label="Keranjang">
+            <i data-lucide="shopping-bag" style="width:24px;height:24px;"></i>
+            <span id="cartBadge">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileDrawer" class="hidden">
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#faq">FAQ</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+      <a href="produk.html">Semua Produk</a>
+    </div>
+  </header>
+
+  <section id="beranda">
+    <div class="hero-bg">
+      <img src="gambar/bg.png" alt="Batik Background" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-title">BATIK KIRANA EXCLUSIVE</h1>
+      <p class="hero-desc">Temukan keanggunan kain batik asli Indonesia dengan filosofi luhur, ragam motif tradisional keraton dan desain kontemporer modern dari pengrajin terampil tanah air.</p>
+      <a href="produk.html" class="btn-hero">Beli Sekarang</a>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="container-brand">
+      <div class="row align-items-center mb-5 g-4 g-lg-5">
+        <div class="col-lg-5">
+          <div class="about-img-wrap">
+            <img src="gambar/about.jpg" alt="Batik Stack" />
+            <div class="about-badge"><p>UNESCO Intangible Cultural Heritage of Humanity</p></div>
+          </div>
+        </div>
+        <div class="col-lg-7 d-flex flex-column align-items-start gap-3">
+          <span class="about-label">TENTANG BATIK KIRANA</span>
+          <h2 class="about-heading">Menatap Masa Depan, Merawat Warisan Budaya.</h2>
+          <p class="about-text mb-0">Batik merupakan warisan adiluhung mahakarya bangsa Indonesia yang telah diakui oleh UNESCO sebagai Masterpiece of Oral and Intangible Heritage of Humanity sejak 2 Oktober 2009. Bukan sekadar bentangan kain bergambar, setiap garis canting dan tetesan malam mengandung filosofi kehidupan, kearifan lokal, serta harapan berkah bagi pemakainya.</p>
+          <div class="pt-2"><a href="produk.html" class="btn-about">Jelajahi Sekarang</a></div>
+        </div>
+      </div>
+      <div class="pillars-box">
+        <div class="row text-center g-4">
+          <div class="col-md-4 pillar-item border-md-end pillars-divider">
+            <h3 class="pillar-title">Motif Modern</h3>
+            <p class="pillar-desc">Eksplorasi estetika kontemporer yang chic & stylish untuk generasi muda.</p>
+          </div>
+          <div class="col-md-4 pillar-item border-md-end pillars-divider pt-4 pt-md-0">
+            <h3 class="pillar-title">Motif Tradisional</h3>
+            <p class="pillar-desc">Kaya pakem filosofis keraton seperti Parang, Kawung, Truntum, & Sawat.</p>
+          </div>
+          <div class="col-md-4 pillar-item pt-4 pt-md-0">
+            <h3 class="pillar-title">Tulis & Cap Alami</h3>
+            <p class="pillar-desc">Dikerjakan manual dengan ketelitian tangan & pewarnaan alam ramah lingkungan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="trust-strip">
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#2E7D32;"></i></div><span>100% Produk Dalam Negeri Asli</span></div>
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="check-circle-2" style="width:20px;height:20px;color:#2E7D32;"></i></div><span>Dukungan Penuh UMKM Pengrajin</span></div>
+      </div>
+      <div class="quote-box">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5"><div class="quote-card"><p class="quote-text">“Batik bukan sekadar sehelai kain, melainkan untaian jiwa, filosofi, dan cerita agung tentang peradaban Indonesia.”</p></div></div>
+          <div class="col-lg-7"><p class="quote-desc mb-0">Batik Kirana hadir sebagai platform katalog digital interaktif untuk menghubungkan pecinta seni busana dengan karya pengrajin batik terpercaya dari berbagai sentra batik termahsyur seperti Yogyakarta, Surakarta (Solo), Cirebon, dan Pekalongan. Kami berkomitmen menyajikan produk autentik berkualitas tinggi dengan kemudahan pemesanan langsung terhubung ke layanan pelanggan via WhatsApp.</p></div>
+        </div>
+      </div>
+      <!-- Social Proof (bagian dari Tentang) + feed foto -->
+      <div class="social-proof-section social-proof-inline">
+        <div class="social-proof-row">
+          <div class="social-proof-copy social-proof-copy-left">
+            <span class="social-proof-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              SOCIAL PROOF &amp; KOMUNITAS
+            </span>
+            <h2 class="social-proof-title">
+              IKUTI PERJALANAN<br>
+              <span class="social-proof-handle">@BATIK_KIRANA26</span>
+            </h2>
+            <p class="social-proof-desc">
+              Bergabunglah bersama pecinta batik Indonesia di media sosial. Dapatkan inspirasi padu-padan OOTD harian, cuplikan proses produksi canting langsung dari pengrajin, dan promo eksklusif setiap minggunya.
+            </p>
+            <div class="social-proof-actions">
+              <a href="https://instagram.com/batik_kirana26" target="_blank" rel="noopener" class="social-btn social-btn-ig">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @batik_kirana26
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Embed feed Instagram resmi @batik_kirana26 (Meta embed.js — bukan gambar lokal) -->
+          <div class="social-proof-cards social-proof-cards-row ig-feed-wrap" id="galleryGrid">
+            <blockquote
+              class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/batik_kirana26/"
+              data-instgrm-version="14"
+              style="background:#FFF; border:0; border-radius:16px; margin:0; max-width:100%; min-width:0; padding:0; width:100%;">
+              <a href="https://www.instagram.com/batik_kirana26/" target="_blank" rel="noopener">@batik_kirana26 di Instagram</a>
+            </blockquote>
+            <script async src="https://www.instagram.com/embed.js"></script>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="katalog">
+    <div class="container-brand">
+      <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3 mb-4">
+        <h2 class="section-title">KATALOG PRODUK BATIK KIRANA</h2>
+        <div class="badge-pill"><i data-lucide="shopping-bag" style="width:16px;height:16px;"></i><span>Produk Kami</span></div>
+      </div>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Cari Produk Kami..." />
+        <i data-lucide="search" class="search-icon" style="width:20px;height:20px;"></i>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="cat-card" onclick="window.location.href='produk.html?category=all'">
+            <img src="gambar/all.png" alt="All Products" />
+            <div class="cat-overlay"><h3 class="cat-title">ALL PRODUCTS</h3></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cat-card" onclick="window.location.href='produk.html?category=bestseller'">
+            <img src="gambar/modern2.jpg" alt="Bestseller" />
+            <div class="cat-overlay"><h3 class="cat-title">BESTSELLER</h3></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cat-card" onclick="window.location.href='produk.html?category=couple'">
+            <img src="gambar/couple.png" alt="Set Batik" />
+            <div class="cat-overlay"><h3 class="cat-title">SET BATIK</h3></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="produk.html?category=all" class="btn-lihat-semua">Lihat Semua</a>
+      </div>
+
+      <!-- Galeri (bagian dari Katalog) -->
+      <div id="galeri" class="gallery-in-katalog">
+        <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3 mb-4">
+          <h2 class="section-title">GALERRY BATIK KIRANA</h2>
+          <div class="badge-pill"><i data-lucide="camera" style="width:16px;height:16px;"></i><span>Galerry Kami</span></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri1.jpg" alt="Galeri Batik Kirana 1" onerror="this.src='gambar/modern1.jpg'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri2.jpg" alt="Galeri Batik Kirana 2" onerror="this.src='gambar/Tulis.jpg'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri3.jpg" alt="Galeri Batik Kirana 3" onerror="this.src='gambar/couple.png'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri4.jpg" alt="Galeri Batik Kirana 4" onerror="this.src='gambar/cap1.jpg'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri5.jpg" alt="Galeri Batik Kirana 5" onerror="this.src='gambar/tradisional2.jpg'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="gallery-item">
+              <img src="gambar/galeri6.jpg" alt="Galeri Batik Kirana 6" onerror="this.src='gambar/modern2.jpg'">
+              <button type="button" class="like-btn" onclick="likeGallery(this)" aria-label="Suka">
+                <span>❤️</span><span>342</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container" style="max-width:56rem;">
+      <div class="text-center mb-4">
+        <h2 class="section-title mb-2">INFORMASI TANYA JAWAB</h2>
+        <p style="color:#6B5A52;font-size:0.875rem;max-width:36rem;margin:0 auto;">Temukan jawaban lengkap seputar ketersediaan produk batik, proses pemesanan, dan layanan kami.</p>
+      </div>
+      <div class="mb-4" id="faqAccordion">
+        <div class="faq-item">
+          <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="faq-btn">
+            <span>Bagaimana cara mencuci baju batik agar warnanya tidak cepat pudar?</span>
+            <i data-lucide="chevron-down" style="width:16px;height:16px;color:#A45D46;"></i>
+          </button>
+          <div class="faq-answer">
+            Gunakan sabun khusus lerak atau detergen cair lembut. Hindari memeras terlalu kuat dan jangan jemur di bawah terik matahari langsung.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="faq-btn">
+            <span>Apakah semua batik di Batik Kirana dibuat asli oleh pengrajin lokal?</span>
+            <i data-lucide="chevron-down" style="width:16px;height:16px;color:#A45D46;"></i>
+          </button>
+          <div class="faq-answer hidden">
+            Ya, 100% koleksi Batik Kirana dikurasi langsung dari mitra pengrajin batik terpercaya di Yogyakarta, Solo, Cirebon, dan Pekalongan.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="faq-btn">
+            <span>Berapa lama estimasi pengiriman dan bagaimana kebijakan retur produk?</span>
+            <i data-lucide="chevron-down" style="width:16px;height:16px;color:#A45D46;"></i>
+          </button>
+          <div class="faq-answer hidden">
+            Pengiriman 2–4 hari kerja. Kami menyediakan garansi tukar ukuran hingga 7 hari setelah barang diterima.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="faq-btn">
+            <span>Bagaimana cara memesan ukuran custom atau seragam kantor / keluarga?</span>
+            <i data-lucide="chevron-down" style="width:16px;height:16px;color:#A45D46;"></i>
+          </button>
+          <div class="faq-answer hidden">
+            Silakan hubungi konsultan kami via WhatsApp untuk pesanan jahit custom berfuring atau seragam jumlah banyak.
+          </div>
+        </div>
+      </div>
+      <div class="faq-cta">
+        <div>
+          <h3 class="faq-cta-title">Punya Pertanyaan Spesifik Lainnya?</h3>
+          <p class="faq-cta-desc">Tim konsultan batik kami siap membantu Anda memilih motif dan ukuran terbaik.</p>
+        </div>
+        <a href="https://wa.me/6285142832608?text=Halo%20Admin%20Batik%20Kirana" target="_blank" class="btn-wa">
+          <i data-lucide="message-circle" style="width:16px;height:16px;"></i><span>Tanya Via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni">
+    <div class="container-brand">
+      <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3 mb-2">
+        <h2 class="section-title">APA KATA PELANGGAN?</h2>
+        <div class="badge-pill"><i data-lucide="sparkles" style="width:16px;height:16px;"></i><span>Testimoni pelanggan</span></div>
+      </div>
+      <p style="color:#6B5A52;font-size:0.875rem;margin-bottom:40px;max-width:36rem;">Kepuasan ribuan pelanggan dari Sabang sampai Merauke yang mempercayakan busana batik berkualitas kepada kami.</p>
+      <div class="row g-4" id="testimonialsGrid">
+        <div class="col-12 col-md-4">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">“Suka banget sama kemeja batik cap ini pas dibelikan untuk suami! Motif patchwork biru dongker dan aksen jahitan jelujurnya kelihatan sangat fresh, kasual, tapi tetap rapi. Pas dipakai bikin suami kelihatan lebih muda dan keren. Bahannya adem, tidak mudah kusut, dan gampang distrika. Cocok banget dipakai jalan-jalan santai pas akhir pekan atau acara keluarga!. Pengiriman ke Jakarta cuma 2 hari. Recommended seller!”</p>
+            </div>
+            <div>
+              <hr class="testimonial-divider">
+              <div class="testimonial-name">Siri Rahma</div>
+              <div class="testimonial-loc">Jakarta Selatan</div>
+              <span class="testimonial-buy">Membeli : Batik Cap</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">“Kualitas batik tulisnya luar biasa. Detail canting motif kehati dan dedaunannya sangat halus dan rapi. Warna hitam pekat berpadu dengan warna emas kecokelatan memberi kesan wibawa yang sangat kuat saat dipakai meeting penting. Pengiriman ke Surabaya cuma 2 hari, packing box batiknya rapi. Recommended seller!”</p>
+            </div>
+            <div>
+              <hr class="testimonial-divider">
+              <div class="testimonial-name">Bambang Sutrisno</div>
+              <div class="testimonial-loc">Surabaya</div>
+              <span class="testimonial-buy">Membeli : Batik Tulis</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">“Bagus banget set batiknya! Brukat di bagian bajunya halus, tidak gatal sama sekali. Motif meraknya kelihatan mewah dan warna cream-sagenya terkesan sangat mahal. Dipakai kondangan bareng suami langsung banyak yang nanya beli di mana. Pengiriman juga cepat! Pengiriman ke Bandung cuma 2 hari, packing box batiknya rapi dan eksklusif sekali. Recommended seller!”</p>
+            </div>
+            <div>
+              <hr class="testimonial-divider">
+              <div class="testimonial-name">Dewi Lestari</div>
+              <div class="testimonial-loc">Bandung</div>
+              <span class="testimonial-buy">Membeli : Set Batik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container-brand">
+      <div class="text-center mb-4">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="contact-subtitle">Punya pertanyaan tentang produk? Jangan ragu untuk menghubungi kami.</p>
+      </div>
+      <div class="row g-4 align-items-stretch mb-5">
+        <div class="col-lg-5">
+          <div class="contact-info-card">
+            <h3 class="contact-info-heading">Mari Terhubung</h3>
+            <div class="contact-info-list">
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><i data-lucide="map-pin" style="width:18px;height:18px;"></i></div>
+                <div>
+                  <div class="contact-info-label">Alamat</div>
+                  <a href="https://maps.app.goo.gl/URVRZkABMEBF4cdY6" target="_blank" rel="noopener" class="contact-info-value contact-link">Jl. HOS Cokroaminoto, Mekar Baru, Kec. Kota Kisaran Barat, Kabupaten Asahan, Sumatera Utara</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><i data-lucide="message-circle" style="width:18px;height:18px;"></i></div>
+                <div>
+                  <div class="contact-info-label">WhatsApp</div>
+                  <a href="https://wa.me/6285142832608" target="_blank" rel="noopener" class="contact-info-value contact-link">+62 851-4283-2608</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><i data-lucide="mail" style="width:18px;height:18px;"></i></div>
+                <div>
+                  <div class="contact-info-label">Email</div>
+                  <a href="mailto:info.batikkirana@gmail.com" class="contact-info-value contact-link">info.batikkirana@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><i data-lucide="phone" style="width:18px;height:18px;"></i></div>
+                <div>
+                  <div class="contact-info-label">Telepon</div>
+                  <a href="tel:+6285142832608" class="contact-info-value contact-link">0851-4283-2608</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><i data-lucide="clock" style="width:18px;height:18px;"></i></div>
+                <div>
+                  <div class="contact-info-label">Jam Operasional</div>
+                  <div class="contact-info-value">Online: 09:00 – 16:00 WIB<br>Offline: 08:00 – 21:00 WIB</div>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="contact-icon-circle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg></div>
+                <div>
+                  <div class="contact-info-label">Instagram</div>
+                  <a href="https://instagram.com/batik_kirana26" target="_blank" rel="noopener" class="contact-info-value contact-link">@batik_kirana26</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-form-card">
+            <form onsubmit="handleContactSubmit(event)">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <input type="text" id="contactName" required placeholder="Nama Anda" class="form-control-contact" />
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" id="contactWa" required placeholder="No. WhatsApp" class="form-control-contact" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <select id="contactTopic" class="form-control-contact">
+                  <option value="">Subjek</option>
+                  <option>Pemesanan Batik Tulis / Cap</option>
+                  <option>Konsultasi Motif &amp; Ukuran Busana</option>
+                  <option>Pemesanan Seragam Kantor / Keluarga</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <textarea id="contactMsg" rows="5" placeholder="Tulis pesan Anda" class="form-control-contact"></textarea>
+              </div>
+              <button type="submit" class="btn-submit-contact">Kirim Pesan</button>
+
+          <div class="contact-extra-info">
+            <div class="contact-mini-card">
+              <div class="mini-icon"><i data-lucide="shield-check"></i></div>
+              <div>
+                <h6>Belanja Aman</h6>
+                <p>Data pelanggan dijaga dan pemesanan diproses secara terpercaya.</p>
+              </div>
+            </div>
+            <div class="contact-mini-card">
+              <div class="mini-icon"><i data-lucide="truck"></i></div>
+              <div>
+                <h6>Pengiriman Cepat</h6>
+                <p>Melayani pengiriman ke seluruh Indonesia melalui ekspedisi terpercaya.</p>
+              </div>
+            </div>
+          </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-4">
+        <span class="location-label">LOKASI TOKO</span>
+        <h2 class="section-title mb-2">Temukan Kami</h2>
+        <p class="contact-subtitle">Kamu bisa menemukan lokasi Batik Kirana melalui peta berikut.</p>
+      </div>
+      <div class="map-embed-wrap">
+        <a href="https://maps.app.goo.gl/URVRZkABMEBF4cdY6" target="_blank" rel="noopener" class="map-open-btn">Open in Maps</a>
+        <iframe
+          class="map-iframe"
+          title="Lokasi Batik Kirana"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.4022759781274!2d99.62417970000001!3d2.9857354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30324be88b6e4a69%3A0xfc5deee4570e4348!2sRumah%20Batik%20Kirana!5e0!3m2!1sen!2sid!4v1787278723457!5m2!1sen!2sid"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center" style="max-width:56rem;">
+      <div class="footer-logo"><img src="gambar/logo.png" alt="Logo Batik Kirana"></div>
+      <p class="footer-desc">Platform katalog dan toko batik kirana terpercaya. Kami berdedikasi melestarikan mahakarya adiluhung budaya bangsa dengan menyediakan ragam batik tulis, cap, dan modern berkualitas terbaik langsung dari para empu pengrajin.</p>
+      <div class="footer-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#katalog">Katalog</a>
+        <a href="produk.html">Produk</a>
+        <a href="#faq">FAQ</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <div class="footer-copy">© 2026 BatikKirana. Dilestarikan dengan ❤️ untuk Warisan Budaya Indonesia.</div>
+    </div>
+  </footer>
+
+  <div id="productModal" class="hidden">
+    <div class="modal-product-inner" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeProductModal()" class="modal-close-btn" aria-label="Tutup"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+      <div id="modalProductContent"></div>
+    </div>
+  </div>
+
+  <div id="cartDrawer" class="hidden" onclick="toggleCart(false)">
+    <div class="cart-panel" onclick="event.stopPropagation()">
+      <div class="cart-header">
+        <div class="cart-header-title"><i data-lucide="shopping-bag" style="width:24px;height:24px;"></i><h3>Keranjang Belanja</h3></div>
+        <button type="button" onclick="toggleCart(false)" class="cart-close" aria-label="Tutup"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+      </div>
+      <div id="cartItemsList"></div>
+      <div class="cart-footer" id="cartFooter">
+        <div class="voucher-row">
+          <input type="text" id="voucherInput" placeholder="Kode Voucher (cth: KIRANA10)" />
+          <button type="button" onclick="applyVoucher()" class="btn-voucher">Gunakan</button>
+        </div>
+        <div id="cartTotals"></div>
+        <button type="button" onclick="openCheckout()" class="btn-checkout">Lanjut ke Checkout</button>
+        <button type="button" onclick="checkoutDirectWa()" class="btn-wa-checkout"><i data-lucide="message-circle" style="width:16px;height:16px;"></i><span>Pesan Cepat via WhatsApp</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkoutModal" class="hidden">
+    <div class="checkout-inner" onclick="event.stopPropagation()">
+      <div class="checkout-header">
+        <h3>Formulir Pemesanan Batik Kirana</h3>
+        <button type="button" onclick="closeCheckout()" class="cart-close" aria-label="Tutup"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+      </div>
+      <div class="checkout-body">
+        <form onsubmit="submitCheckoutOrder(event)">
+          <div class="mb-3"><label class="checkout-label">Nama Lengkap Penerima *</label><input type="text" id="chkName" required placeholder="Contoh: Raden Ayu Sekar" class="checkout-input" /></div>
+          <div class="mb-3"><label class="checkout-label">Nomor WhatsApp / HP *</label><input type="tel" id="chkWa" required placeholder="Contoh: 081234567890" class="checkout-input" /></div>
+          <div class="mb-3"><label class="checkout-label">Alamat Lengkap Pengiriman *</label><textarea id="chkAddress" rows="2" required placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan, kota" class="checkout-input" style="resize:none;"></textarea></div>
+          <div class="row g-3 mb-3">
+            <div class="col-6"><label class="checkout-label">Kurir</label><select id="chkCourier" class="checkout-input"><option>JNE Express</option><option>SiCepat</option><option>J&T Express</option><option>POS Indonesia</option></select></div>
+            <div class="col-6"><label class="checkout-label">Pembayaran</label><select id="chkPayment" class="checkout-input"><option>QRIS</option><option>BCA</option><option>Mandiri</option><option>COD</option></select></div>
+          </div>
+          <button type="submit" class="btn-submit-order"><i data-lucide="message-circle" style="width:16px;height:16px;"></i><span>Kirim Pesanan ke WhatsApp</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="hidden">
+    <div class="login-inner" onclick="event.stopPropagation()">
+      <div class="login-header">
+        <h3 id="loginModalTitle">Masuk ke Batik Kirana</h3>
+        <button type="button" onclick="closeLoginModal()" class="cart-close" aria-label="Tutup">
+          <i data-lucide="x" style="width:16px;height:16px;"></i>
+        </button>
+      </div>
+      <div class="login-body">
+        <div id="loginFormView">
+          <form onsubmit="handleLogin(event)">
+            <div class="mb-3">
+              <label class="checkout-label">Email *</label>
+              <input type="email" id="loginEmail" required placeholder="contoh@email.com" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Password *</label>
+              <input type="password" id="loginPassword" required minlength="4" placeholder="Minimal 4 karakter" class="checkout-input" />
+            </div>
+            <button type="submit" class="btn-submit-order">Masuk</button>
+          </form>
+          <p class="login-switch">Belum punya akun? <button type="button" onclick="showRegisterView()">Daftar</button></p>
+        </div>
+        <div id="registerFormView" class="hidden">
+          <form onsubmit="handleRegister(event)">
+            <div class="mb-3">
+              <label class="checkout-label">Nama Lengkap *</label>
+              <input type="text" id="regName" required placeholder="Nama Anda" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Email *</label>
+              <input type="email" id="regEmail" required placeholder="contoh@email.com" class="checkout-input" />
+            </div>
+            <div class="mb-3">
+              <label class="checkout-label">Password *</label>
+              <input type="password" id="regPassword" required minlength="4" placeholder="Minimal 4 karakter" class="checkout-input" />
+            </div>
+            <button type="submit" class="btn-submit-order">Daftar Akun</button>
+          </form>
+          <p class="login-switch">Sudah punya akun? <button type="button" onclick="showLoginView()">Masuk</button></p>
+        </div>
+        <div id="loggedInView" class="hidden">
+          <div class="login-user-info">
+            <div class="login-avatar"><i data-lucide="user-check" style="width:28px;height:28px;"></i></div>
+            <p class="login-user-name" id="loggedInName">Pengguna</p>
+            <p class="login-user-email" id="loggedInEmail">email@example.com</p>
+          </div>
+          <button type="button" onclick="handleLogout()" class="btn-logout">Keluar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-08f80edd-7cfe-4877-b08f-32658d80ba8c" data-elfsight-app-lazy></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
